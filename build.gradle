@@ -1,0 +1,100 @@
+import org.jacoco.agent.rt.RT
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'org.jacoco', name: 'org.jacoco.agent', version: '0.8.5', classifier: 'runtime'
+        classpath group: 'org.jacoco', name: 'org.jacoco.core', version: '0.8.5'
+    }
+}
+
+group "org.gradle.sample"
+version "0.1.0.0"
+
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+configurations {
+    jacocoAnt
+    jacocoRuntime
+}
+
+
+dependencies {
+    //offline instrument via ant task
+    jacocoAnt group: 'org.jacoco', name: 'org.jacoco.ant', version: '0.8.5', classifier: 'nodeps'
+
+    //the jacoco runtime private for RT.getAgent()
+    jacocoRuntime group: 'org.jacoco', name: 'org.jacoco.agent', version: '0.8.5', classifier: 'runtime'
+
+    testImplementation 'junit:junit:4.12'
+}
+
+
+task instrument(dependsOn: ['classes']) {
+    ext.outputDir = buildDir.path + '/classes-instrumented'
+    doLast {
+        ant.taskdef(name: 'instrument',
+                classname: 'org.jacoco.ant.InstrumentTask',
+                classpath: configurations.jacocoAnt.asPath)
+        ant.instrument(destdir: outputDir) {
+            sourceSets.main.output.classesDirs.each { fileset(dir: it) }
+        }
+    }
+}
+
+task sampletestworks(type: Test) {
+    forkEvery 1
+    maxParallelForks 1
+
+    doFirst {
+        println "org.jacoco.agent.rt.RT loaded from " + RT.class.getProtectionDomain().getCodeSource()
+        systemProperty 'jacoco-agent.destfile', buildDir.path + '/jacoco/firsttests.exec'
+        classpath = files(instrument.outputDir) + classpath + configurations.jacocoRuntime
+    }
+}
+
+task sampletest(type: Test) {
+    ignoreFailures = true
+    //jars used every step is same.
+    println classpath.asPath
+
+    forkEvery 1
+    maxParallelForks 1
+
+    doFirst {
+        println "org.jacoco.agent.rt.RT loaded from " + RT.class.getProtectionDomain().getCodeSource()
+
+        systemProperty 'jacoco-agent.destfile', buildDir.path + '/jacoco/firsttests.exec'
+        classpath = files(instrument.outputDir) + classpath + configurations.jacocoRuntime
+
+    }
+    beforeTest { TestDescriptor descriptor ->
+        println "org.jacoco.agent.rt.RT loaded from " + RT.class.getProtectionDomain().getCodeSource()
+    }
+
+    afterTest { TestDescriptor descriptor ->
+        //get agent will fail with Agent not started.
+        systemProperty 'jacoco-agent.destfile', buildDir.path + '/jacoco/aftertests.exec'
+
+        //agent not started error
+        def agent = RT.getAgent()
+        agent.sessionId = descriptor.name
+        agent.dump(true)
+
+    }
+}
+
+//instrument and run a test.
+sampletest.dependsOn(instrument)
+
