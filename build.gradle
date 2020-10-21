@@ -81,12 +81,14 @@ task sampletest(type: Test) {
     }
     beforeTest { TestDescriptor descriptor ->
         println "org.jacoco.agent.rt.RT loaded from " + RT.class.getProtectionDomain().getCodeSource()
+        System.out.println("beforetest:pid of beforeTest " +java.lang.management.ManagementFactory.getRuntimeMXBean().getName());
     }
 
     afterTest { TestDescriptor descriptor ->
         //get agent will fail with Agent not started.
         systemProperty 'jacoco-agent.destfile', buildDir.path + '/jacoco/aftertests.exec'
 
+        System.out.println("beforetest:pid of afterTest" +java.lang.management.ManagementFactory.getRuntimeMXBean().getName());
         //agent not started error
         def agent = RT.getAgent()
         agent.sessionId = descriptor.name
