@@ -1,8 +1,28 @@
-import org.jacoco.agent.rt.RT
+import javax.management.MBeanServerConnection
+import javax.management.MBeanServerInvocationHandler
+import javax.management.ObjectName
+import javax.management.remote.JMXConnector
+import javax.management.remote.JMXConnectorFactory
+import javax.management.remote.JMXConnectorFactory as JmxFactory
+import javax.management.remote.JMXServiceURL
+import javax.management.remote.JMXServiceURL as JmxUrl
 
 apply plugin: 'java'
 apply plugin: 'idea'
 
+interface IProxy {
+    String getVersion();
+
+    String getSessionId();
+
+    void setSessionId(String id);
+
+    byte[] getExecutionData(boolean reset);
+
+    void dump(boolean reset);
+
+    void reset();
+}
 
 buildscript {
     repositories {
@@ -72,27 +92,60 @@ task sampletest(type: Test) {
     forkEvery 1
     maxParallelForks 1
 
-    doFirst {
-        println "org.jacoco.agent.rt.RT loaded from " + RT.class.getProtectionDomain().getCodeSource()
+    systemProperty( "jmx", true)
+    jvmArgs("-Djmx=true")
+    jvmArgs("-Dcom.sun.management.jmxremote.port=9998")
+    jvmArgs("-Dcom.sun.management.jmxremote.ssl=false")
+    jvmArgs("-Dcom.sun.management.jmxremote.authenticate=false")
 
+
+
+    doFirst {
         systemProperty 'jacoco-agent.destfile', buildDir.path + '/jacoco/firsttests.exec'
         classpath = files(instrument.outputDir) + classpath + configurations.jacocoRuntime
+        project.logger.info("doFirst:pid  " +java.lang.management.ManagementFactory.getRuntimeMXBean().getName());
+    }
+
+    beforeTest { TestDescriptor descriptor ->
+        systemProperty 'jacoco-agent.destfile', buildDir.path + '/jacoco/firstsectests.exec'
+        System.out.println("beforetest:pid of beforeTest " +java.lang.management.ManagementFactory.getRuntimeMXBean().getName());
+
+
+
+
+        //agent not started error
+        String SERVICE_URL = "service:jmx:rmi:///jndi/rmi://localhost:9998/jmxrmi"
+        // Open connection to the coverage agent:
+        final JMXServiceURL url = new JMXServiceURL(SERVICE_URL);
+        final JMXConnector jmxc = JMXConnectorFactory.connect(url, null);
+        final MBeanServerConnection connection = jmxc
+                .getMBeanServerConnection();
+
+        final IProxy proxy = (IProxy) MBeanServerInvocationHandler
+                .newProxyInstance(connection,
+                        new ObjectName("org.jacoco:type=Runtime"), IProxy.class,
+                        false);
+
+        // Retrieve JaCoCo version and session id:
+        println ("Version: " + proxy.getVersion());
+        println("Session: " + proxy.getSessionId());
+
+        // Retrieve dump and write to file:
+        final byte[] data = proxy.getExecutionData(false);
+        final FileOutputStream localFile = new FileOutputStream(DESTFILE);
+        localFile.write(data);
+        localFile.close();
+
+        // Close connection:
+        jmxc.close();
 
     }
-    beforeTest { TestDescriptor descriptor ->
-        println "org.jacoco.agent.rt.RT loaded from " + RT.class.getProtectionDomain().getCodeSource()
-        System.out.println("beforetest:pid of beforeTest " +java.lang.management.ManagementFactory.getRuntimeMXBean().getName());
-    }
+
+
 
     afterTest { TestDescriptor descriptor ->
         //get agent will fail with Agent not started.
-        systemProperty 'jacoco-agent.destfile', buildDir.path + '/jacoco/aftertests.exec'
-
-        System.out.println("beforetest:pid of afterTest" +java.lang.management.ManagementFactory.getRuntimeMXBean().getName());
-        //agent not started error
-        def agent = RT.getAgent()
-        agent.sessionId = descriptor.name
-        agent.dump(true)
+        println ("beforetest:pid of afterTest" +java.lang.management.ManagementFactory.getRuntimeMXBean().getName());
 
     }
 }
