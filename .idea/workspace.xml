@@ -23,13 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99507f33-6e28-41f4-b810-e3e234bc023e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/number-utils.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/services/com.nordstrom.automation.junit.JUnitWatcher" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org.sample.numberutils/TestNumbers2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/sample/TestWatcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sample/numberutils/Numbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sample/numberutils/Numbers.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +65,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -93,6 +99,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -108,6 +115,11 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.sample.numberutils" />
+    </key>
   </component>
   <component name="RunManager" selected="Gradle.number-utils [sampletest]">
     <configuration default="true" type="Application" factoryName="Application">
@@ -192,8 +204,17 @@
       <workItem from="1603260881088" duration="6797000" />
       <workItem from="1603450742024" duration="2207000" />
       <workItem from="1605602666656" duration="2888000" />
-      <workItem from="1605615607343" duration="2180000" />
+      <workItem from="1605615607343" duration="4900000" />
+      <workItem from="1605681268467" duration="613000" />
     </task>
+    <task id="LOCAL-00001" summary="Junk state. not working :)">
+      <created>1605631292263</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605631292263</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,15 +233,35 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Junk state. not working :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Junk state. not working :)" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="312" y="74" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602851728125">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="312" y="74" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1602851728125" />
+    <state x="575" y="142" key="#com.intellij.ide.util.MemberChooser" timestamp="1605632482845">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="575" y="142" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1605632482845" />
+    <state x="566" y="292" width="404" height="286" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1605632038740">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="566" y="292" width="404" height="286" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.864@0.0.1536.864" timestamp="1605632038740" />
     <state x="288" y="123" width="1105" height="622" key="#xdebugger.evaluate" timestamp="1603177579339">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="288" y="123" width="1105" height="622" key="#xdebugger.evaluate/0.0.1536.864@0.0.1536.864" timestamp="1603177579339" />
+    <state x="393" y="27" key="CommitChangelistDialog2" timestamp="1605631291116">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="393" y="27" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1605631291116" />
+    <state x="148" y="69" key="DiffContextDialog" timestamp="1605631273245">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="148" y="69" key="DiffContextDialog/0.0.1536.864@0.0.1536.864" timestamp="1605631273245" />
     <state x="500" y="170" key="FileChooserDialogImpl" timestamp="1605604310378">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -277,6 +318,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="200" y="0" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1605617467290" />
+    <state x="584" y="211" key="chooseDestDirectoryDialog" timestamp="1605632535318">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="584" y="211" key="chooseDestDirectoryDialog/0.0.1536.864@0.0.1536.864" timestamp="1605632535318" />
     <state x="100" y="100" width="1236" height="630" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1603191737520">
       <screen x="0" y="0" width="1280" height="1024" />
     </state>
@@ -290,10 +335,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="376" y="190" width="672" height="677" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1602850789428" />
-    <state x="381" y="176" width="672" height="678" key="search.everywhere.popup" timestamp="1603173572015">
+    <state x="381" y="176" width="672" height="678" key="search.everywhere.popup" timestamp="1605633565930">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="381" y="176" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1603173572015" />
+    <state x="381" y="176" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1605633565930" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -345,7 +390,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/build.gradle</url>
-          <line>109</line>
+          <line>113</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>

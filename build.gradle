@@ -58,8 +58,16 @@ dependencies {
     jacocoRuntime group: 'org.jacoco', name: 'org.jacoco.agent', version: '0.8.5', classifier: 'runtime'
 
     testImplementation 'junit:junit:4.12'
+    compile 'com.nordstrom.tools:junit-foundation:12.2.0'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine'
 }
 
+ext {
+    junitFoundation = configurations.compile.resolvedConfiguration.resolvedArtifacts.find { it.name == 'junit-foundation' }
+}
 
 task instrument(dependsOn: ['classes']) {
     ext.outputDir = buildDir.path + '/classes-instrumented'
@@ -91,54 +99,20 @@ task sampletest(type: Test) {
 
     forkEvery 1
     maxParallelForks 1
-
-    systemProperty( "jmx", true)
-    jvmArgs("-Djmx=true")
-    jvmArgs("-Dcom.sun.management.jmxremote.port=9998")
-    jvmArgs("-Dcom.sun.management.jmxremote.ssl=false")
-    jvmArgs("-Dcom.sun.management.jmxremote.authenticate=false")
-
+    include '**/*Test*.class'
 
 
     doFirst {
         systemProperty 'jacoco-agent.destfile', buildDir.path + '/jacoco/firsttests.exec'
         classpath = files(instrument.outputDir) + classpath + configurations.jacocoRuntime
         project.logger.info("doFirst:pid  " +java.lang.management.ManagementFactory.getRuntimeMXBean().getName());
+
+        jvmArgs "-javaagent:${junitFoundation.file}"
     }
 
     beforeTest { TestDescriptor descriptor ->
         systemProperty 'jacoco-agent.destfile', buildDir.path + '/jacoco/firstsectests.exec'
         System.out.println("beforetest:pid of beforeTest " +java.lang.management.ManagementFactory.getRuntimeMXBean().getName());
-
-
-
-
-        //agent not started error
-        String SERVICE_URL = "service:jmx:rmi:///jndi/rmi://localhost:9998/jmxrmi"
-        // Open connection to the coverage agent:
-        final JMXServiceURL url = new JMXServiceURL(SERVICE_URL);
-        final JMXConnector jmxc = JMXConnectorFactory.connect(url, null);
-        final MBeanServerConnection connection = jmxc
-                .getMBeanServerConnection();
-
-        final IProxy proxy = (IProxy) MBeanServerInvocationHandler
-                .newProxyInstance(connection,
-                        new ObjectName("org.jacoco:type=Runtime"), IProxy.class,
-                        false);
-
-        // Retrieve JaCoCo version and session id:
-        println ("Version: " + proxy.getVersion());
-        println("Session: " + proxy.getSessionId());
-
-        // Retrieve dump and write to file:
-        final byte[] data = proxy.getExecutionData(false);
-        final FileOutputStream localFile = new FileOutputStream(DESTFILE);
-        localFile.write(data);
-        localFile.close();
-
-        // Close connection:
-        jmxc.close();
-
     }
 
 
