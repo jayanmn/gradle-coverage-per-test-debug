@@ -1,28 +1,6 @@
-import javax.management.MBeanServerConnection
-import javax.management.MBeanServerInvocationHandler
-import javax.management.ObjectName
-import javax.management.remote.JMXConnector
-import javax.management.remote.JMXConnectorFactory
-import javax.management.remote.JMXConnectorFactory as JmxFactory
-import javax.management.remote.JMXServiceURL
-import javax.management.remote.JMXServiceURL as JmxUrl
-
 apply plugin: 'java'
-apply plugin: 'idea'
 
-interface IProxy {
-    String getVersion();
 
-    String getSessionId();
-
-    void setSessionId(String id);
-
-    byte[] getExecutionData(boolean reset);
-
-    void dump(boolean reset);
-
-    void reset();
-}
 
 buildscript {
     repositories {
@@ -63,6 +41,8 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine'
+
+    runtime fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 ext {
@@ -86,7 +66,7 @@ task sampletestworks(type: Test) {
     maxParallelForks 1
 
     doFirst {
-        println "org.jacoco.agent.rt.RT loaded from " + RT.class.getProtectionDomain().getCodeSource()
+
         systemProperty 'jacoco-agent.destfile', buildDir.path + '/jacoco/firsttests.exec'
         classpath = files(instrument.outputDir) + classpath + configurations.jacocoRuntime
     }
@@ -95,7 +75,9 @@ task sampletestworks(type: Test) {
 task sampletest(type: Test) {
     ignoreFailures = true
     //jars used every step is same.
+    println "--------------"
     println classpath.asPath
+    println "--------------"
 
     forkEvery 1
     maxParallelForks 1
@@ -103,25 +85,12 @@ task sampletest(type: Test) {
 
 
     doFirst {
-        systemProperty 'jacoco-agent.destfile', buildDir.path + '/jacoco/firsttests.exec'
+        systemProperty 'jacoco-agent.destfile', buildDir.path + '/jacoco/afirsttests.exec'
         classpath = files(instrument.outputDir) + classpath + configurations.jacocoRuntime
-        project.logger.info("doFirst:pid  " +java.lang.management.ManagementFactory.getRuntimeMXBean().getName());
 
         jvmArgs "-javaagent:${junitFoundation.file}"
     }
 
-    beforeTest { TestDescriptor descriptor ->
-        systemProperty 'jacoco-agent.destfile', buildDir.path + '/jacoco/firstsectests.exec'
-        System.out.println("beforetest:pid of beforeTest " +java.lang.management.ManagementFactory.getRuntimeMXBean().getName());
-    }
-
-
-
-    afterTest { TestDescriptor descriptor ->
-        //get agent will fail with Agent not started.
-        println ("beforetest:pid of afterTest" +java.lang.management.ManagementFactory.getRuntimeMXBean().getName());
-
-    }
 }
 
 //instrument and run a test.

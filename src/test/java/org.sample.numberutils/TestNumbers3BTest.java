@@ -3,11 +3,14 @@ package org.sample.numberutils;
 
 import junit.framework.TestCase;
 import org.junit.Assert;
-import org.junit.Test;
 
 
-public class TestNumbers2 extends TestCase {
+public class TestNumbers3BTest extends TestCase {
 
+    @Override
+    protected void setUp() throws Exception {
+        System.setProperty("jacoco-agent.destfile",getName()+".exe");
+    }
 
     public void testAddInJunit3(){
 

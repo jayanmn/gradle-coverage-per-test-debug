@@ -22,13 +22,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99507f33-6e28-41f4-b810-e3e234bc023e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/services/com.nordstrom.automation.junit.JUnitWatcher" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org.sample.numberutils/TestNumbers2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/sample/TestWatcher.java" afterDir="false" />
+    <list default="true" id="dd6e32fd-c42b-43d2-88ba-8d12e53e527e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org.sample.numberutils/TestNumbers3BTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/services/com.nordstrom.automation.junit.JUnitWatcher" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org.sample.numberutils/TestNumbers2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org.sample.numberutils/TestNumbersA3Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/sample/TestWatcher.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +95,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -119,6 +122,9 @@
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.sample.numberutils" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\repos\number-utils\src" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.number-utils [sampletest]">
@@ -192,7 +198,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="99507f33-6e28-41f4-b810-e3e234bc023e" name="Default Changelist" comment="" />
+      <changelist id="dd6e32fd-c42b-43d2-88ba-8d12e53e527e" name="Default Changelist" comment="" />
       <created>1602665380126</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -206,6 +212,10 @@
       <workItem from="1605602666656" duration="2888000" />
       <workItem from="1605615607343" duration="4900000" />
       <workItem from="1605681268467" duration="613000" />
+      <workItem from="1606225470157" duration="778000" />
+      <workItem from="1606297462945" duration="597000" />
+      <workItem from="1606298841705" duration="3545000" />
+      <workItem from="1606309400015" duration="1517000" />
     </task>
     <task id="LOCAL-00001" summary="Junk state. not working :)">
       <created>1605631292263</created>
@@ -242,10 +252,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="312" y="74" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1602851728125" />
-    <state x="575" y="142" key="#com.intellij.ide.util.MemberChooser" timestamp="1605632482845">
+    <state x="575" y="142" key="#com.intellij.ide.util.MemberChooser" timestamp="1606311111914">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="575" y="142" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1605632482845" />
+    <state x="575" y="142" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1606311111914" />
     <state x="566" y="292" width="404" height="286" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1605632038740">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -327,6 +337,10 @@
     </state>
     <state x="100" y="100" width="1236" height="630" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1280.1024@0.0.1280.1024" timestamp="1603191737520" />
     <state x="100" y="100" width="1236" height="630" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.864@0.0.1536.864" timestamp="1603178161332" />
+    <state x="541" y="152" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1606299124666">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="541" y="152" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1536.864@0.0.1536.864" timestamp="1606299124666" />
     <state x="426" y="148" width="583" height="534" key="find.popup" timestamp="1602933625863">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -335,10 +349,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="376" y="190" width="672" height="677" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1602850789428" />
-    <state x="381" y="176" width="672" height="678" key="search.everywhere.popup" timestamp="1605633565930">
+    <state x="381" y="176" width="672" height="678" key="search.everywhere.popup" timestamp="1606299160141">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="381" y="176" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1605633565930" />
+    <state x="381" y="176" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1606299160141" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -390,7 +404,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/build.gradle</url>
-          <line>113</line>
+          <line>97</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
