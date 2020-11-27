@@ -10,6 +10,7 @@ public class TestNumbers3BTest extends TestCase {
     @Override
     protected void setUp() throws Exception {
         System.setProperty("jacoco-agent.destfile",getName()+".exe");
+
     }
 
     public void testAddInJunit3(){

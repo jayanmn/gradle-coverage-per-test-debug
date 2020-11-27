@@ -4,7 +4,7 @@ package org.sample.numberutils;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TestNumbers1 {
+public class TestNumbers1Test {
 
     @Test
     public void testAdd(){

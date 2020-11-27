@@ -88,6 +88,7 @@ task sampletest(type: Test) {
         systemProperty 'jacoco-agent.destfile', buildDir.path + '/jacoco/afirsttests.exec'
         classpath = files(instrument.outputDir) + classpath + configurations.jacocoRuntime
 
+        println(classpath)
         jvmArgs "-javaagent:${junitFoundation.file}"
     }
 
@@ -95,4 +96,10 @@ task sampletest(type: Test) {
 
 //instrument and run a test.
 sampletest.dependsOn(instrument)
+
+
+task copyDependencies(type: Copy) {
+    from configurations.default
+    into 'dependencies'
+}
 
