@@ -36,11 +36,8 @@ dependencies {
     jacocoRuntime group: 'org.jacoco', name: 'org.jacoco.agent', version: '0.8.5', classifier: 'runtime'
 
     testImplementation 'junit:junit:4.12'
-    compile 'com.nordstrom.tools:junit-foundation:12.2.0'
 
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine'
+    compile 'com.nordstrom.tools:junit-foundation:12.2.0'
 
     runtime fileTree(dir: 'libs', include: ['*.jar'])
 }

@@ -25,11 +25,9 @@
     <list default="true" id="dd6e32fd-c42b-43d2-88ba-8d12e53e527e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/junit-jacoco-gradle.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/junit-jacoco-gradle.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org.sample.numberutils/TestNumbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org.sample.numberutils/TestNumbersTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org.sample.numberutils/TestNumbers1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org.sample.numberutils/TestNumbers1Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org.sample.numberutils/TestNumbers3BTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org.sample.numberutils/TestNumbers3BTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org.sample.numberutils/TestNumbers9.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org.sample.numberutils/TestNumbers9Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sample/numberutils/Numbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sample/numberutils/Numbers.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +213,7 @@
       <workItem from="1606297462945" duration="597000" />
       <workItem from="1606298841705" duration="3545000" />
       <workItem from="1606309400015" duration="1633000" />
-      <workItem from="1606450197907" duration="6488000" />
+      <workItem from="1606450197907" duration="9836000" />
     </task>
     <task id="LOCAL-00001" summary="Junk state. not working :)">
       <created>1605631292263</created>
@@ -349,10 +347,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="376" y="190" width="672" height="677" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1602850789428" />
-    <state x="381" y="176" width="672" height="678" key="search.everywhere.popup" timestamp="1606468313022">
+    <state x="381" y="176" width="672" height="678" key="search.everywhere.popup" timestamp="1606477978261">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="381" y="176" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1606468313022" />
+    <state x="381" y="176" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1606477978261" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -404,7 +402,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/build.gradle</url>
-          <line>104</line>
+          <line>101</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
